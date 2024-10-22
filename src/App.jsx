@@ -31,7 +31,6 @@ function App() {
       setDataDay(newDataDay);
     }
   }, [dayPosition, data, isLoading]); 
-  console.log(dataDay?.hour)
 
 
   if (isLoading) return <div>Loading...</div>;
@@ -39,7 +38,7 @@ function App() {
 
   return (
     <>
-      <Header section={dayPosition} handleSection={handleDayChange} country={data?.location.country} city={data?.location.name} temperature={data?.current.temp_c} date={data?.current.last_updated}/>
+      <Header section={dayPosition} handleSection={handleDayChange} country={data?.location.country} city={data?.location.name} temperature={data?.current.temp_c.toFixed(0)} date={data?.current.last_updated}/>
       <main className='mx-[5vw] gap-4 flex flex-col'>
         <Measurements 
           windMain={dataDay?.hour.at(-1)?.wind_kph % 1 !== 0 ? dataDay?.hour.at(-1)?.wind_kph.toFixed(2): dataDay?.hour.at(-1)?.wind_kph} 
@@ -52,8 +51,8 @@ function App() {
           uvSubordinate={(dataDay?.hour.at(-1)?.uv - dataDay?.hour.at(-2)?.uv) % 1 !== 0 ? (dataDay?.hour.at(-1)?.uv -dataDay?.hour.at(-2)?.uv).toFixed(2) : (dataDay?.hour.at(-1)?.uv - dataDay?.hour.at(-2)?.uv)} 
         />
         <HourlyForecast hourlyData={dataDay?.hour} />
-        <DayForecast dailyData={data.forecast.forecastday} />
-        <ChanceForRain chance={data.forecast.forecastday[0].day.daily_chance_of_rain} />
+        <DayForecast dailyData={data?.forecast?.forecastday} />
+        <ChanceForRain hourlyData={dataDay?.hour} />
         <SunTimes sunrise={dataDay?.astro.sunrise} sunset={dataDay?.astro.sunset} />
       </main>
     </>

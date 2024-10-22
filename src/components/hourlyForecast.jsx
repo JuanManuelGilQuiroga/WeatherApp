@@ -22,8 +22,6 @@ export function HourlyForecast ({hourlyData}) {
             setFinalData(filteredData);
         }
     }, [hourlyData]);
-    console.log(finalData)
-    console.log(hourlyData)
     
     return (
         <div className="h-[18vh] rounded-2xl p-3 flex flex-col justify-between bg-second-purple">
