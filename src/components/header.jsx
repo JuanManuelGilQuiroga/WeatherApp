@@ -1,5 +1,7 @@
+import { CloudyAndSunny } from "../assets/cloudyAndSunnyIcon"
 import { Cloudy } from "../assets/cloudyIcon"
 import { MagnifyingGlassIcon } from "../assets/magnifyingGlassIcon"
+import { Sunny } from "../assets/sunnyIcon"
 
 export function Header ({section, handleSection, country, city, temperature, date}) {
     let mesesAño = {
@@ -31,7 +33,8 @@ export function Header ({section, handleSection, country, city, temperature, dat
                         <p className="ml-[-30px]">Feels like -2°</p>
                     </div>
                     <div className=" w-[20%] flex justify-center flex-col gap-3 mr-5">
-                        <Cloudy style="h-[100%]" />
+                        {temperature > 15 ? temperature > 20 ? <Sunny style="h-[100%]"/> : <CloudyAndSunny style="h-[100%]"/> : <Cloudy style="h-[100%]" /> }
+                        
                         <p className="text-lg text-center">Cloudy</p>
                     </div>
                 </div>
