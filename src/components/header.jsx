@@ -2,7 +2,6 @@ import { Cloudy } from "../assets/cloudyIcon"
 import { MagnifyingGlassIcon } from "../assets/magnifyingGlassIcon"
 
 export function Header ({section, handleSection, country, city, temperature, date}) {
-    console.log(section)
     let mesesAño = {
         0: "January",
         1: "February",
@@ -17,7 +16,6 @@ export function Header ({section, handleSection, country, city, temperature, dat
         10: "November",
         11: "December",
     }
-    console.log(mesesAño[new Date(date).getMonth()])
 
     return (
         <div className="w-[100vws] h-[53vh]">
@@ -47,7 +45,6 @@ export function Header ({section, handleSection, country, city, temperature, dat
             </div>
             <div className="mx-[5vw] h-[8vh] flex justify-between items-center">
                 {["Today","Tomorrow","10 days"].map((i, index) => {
-                    console.log(i)
                     return (<div onClick={() => handleSection(i)} className={`flex justify-center items-center w-[100px] h-[50%] gap-5 rounded-xl ${section === i ? "bg-first-purple" : "bg-white"}`} ><p className={`text-center text-sm ${section === i ? ("text-text-purple") : ("")}`}>{i}</p></div>)
                 })}
             </div>

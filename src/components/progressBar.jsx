@@ -1,7 +1,6 @@
 export function ProgressBar ({hour, percent}) {
 
     const hours = new Date(hour).getHours()
-    console.log(hours)
     return (
         <div className="w-[100%] flex justify-between items-center">
             <p>{hours >= 12 ? `${hours-12} PM` : `${hours} AM`}</p>
