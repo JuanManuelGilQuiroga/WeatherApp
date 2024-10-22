@@ -3,16 +3,20 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export function ForecastChart({ data }) {
+export function ForecastChart() {
+
+  const data = [18,20,15,16,15,19,22]
+  const dias = ["Mon","Tue","Wen","Thu","Fri","Sat","Sun"]
+
   const chartData = {
-    labels: data.map(item => item.date),
+    labels: dias,
     datasets: [
       {
-        label: 'Temperature (°C)',
-        data: data.map(item => item.temperature),
-        borderColor: '#8884d8',
+        data: data,
         fill: true,
-        backgroundColor: 'rgba(136, 132, 216, 0.2)',
+        backgroundColor: '#2E004E',
+        borderColor: '#2E004E',
+        pointBorderColor: '#2E004E',
         borderWidth: 2,
         tension: 0.4,
       },
@@ -23,14 +27,18 @@ export function ForecastChart({ data }) {
     responsive: true,
     scales: {
       y: {
-        min: -10, 
-        max: 10,
+        min: 0, 
+        max: 30,
         ticks: {
+          color: '',
           callback: function (value) {
             return value + '°C';
           },
         },
       },
+      x: {
+        ticks: { color: 'black' }
+      }
     },
     plugins: {
       legend: {
@@ -39,5 +47,5 @@ export function ForecastChart({ data }) {
     },
   };
 
-  return (<Line data={chartData} options={options} />);
+  return (<Line className='h-[100%]' data={chartData} options={options} />);
 }

@@ -1,5 +1,6 @@
 import RainyIcon from "../assets/rainy.svg"
 import { ForecastChart } from "./forecastChart"
+import { IconCircle } from "./iconCircle"
 
 export function DayForecast () {
     return (
@@ -8,8 +9,8 @@ export function DayForecast () {
                 <IconCircle icon={RainyIcon}/>
                 <p className="text-sm ml-2">Day forecast</p>
             </div>
-            <div className="h-[65%] mx-2">
-                {/*<ForecastChart/>*/}
+            <div className="w-[90%] h-[90%] flex justify-center items-center">
+                <ForecastChart/>
             </div>
         </div>
     )
