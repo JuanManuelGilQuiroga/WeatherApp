@@ -27,15 +27,15 @@ export function Header ({section, handleSection, country, city, temperature, dat
                     <p className="text-white text-xl" >{country}, {city}</p>
                     <MagnifyingGlassIcon style="h-[70%] text-white" />
                 </div>
-                <div className="px-[5vw] h-[35%] flex justify-between items-end text-white">
+                <div className="px-[5vw] h-[38%] flex justify-between items-end text-white">
                     <div className="flex items-end">
                         <p className="text-8xl font-medium">{temperature}°</p>
                         <p className="ml-[-30px]">Feels like -2°</p>
                     </div>
-                    <div className=" w-[20%] flex justify-center flex-col gap-3 mr-5">
-                        {temperature > 15 ? temperature > 20 ? <Sunny style="h-[100%]"/> : <CloudyAndSunny style="h-[100%]"/> : <Cloudy style="h-[100%]" /> }
+                    <div className="h-[100%] w-[20%] mr-5 relative">
+                        {temperature > 15 ? temperature > 20 ? <Sunny style="h-[70%]"/> : <CloudyAndSunny style="h-[70%]"/> : <Cloudy style="h-[70%]" /> }
                         
-                        <p className="text-lg text-center">Cloudy</p>
+                        <p className="max-w-24 text-lg text-center break-words leading-none absolute bottom-0 left-[-1rem]">{temperature > 15 ? temperature > 20 ? "Sunny" : "Cloudy And Sunny" : "Cloudy" }</p>
                     </div>
                 </div>
                 <div className="mx-[5vw] flex justify-between items-end text-white">
