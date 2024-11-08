@@ -33,8 +33,8 @@ export function Header ({section, handleSection, country, city, temperature, dat
                         <p className="ml-[-30px]">Feels like -2°</p>
                     </div>
                     <div className="h-[100%] w-[20%] mr-5 relative">
-                        {temperature > 15 ? temperature > 20 ? <Sunny style="h-[50%] absolute left-[-2rem] top-3"/> : <CloudyAndSunny style="h-[50%] absolute left-[-2rem] top-3"/> : <Cloudy style="h-[55%] absolute left-[-2rem] top-3" /> }
-                        <p className="max-w-24 text-lg text-center break-words leading-none absolute bottom-3 left-[-1rem]">{temperature > 15 ? temperature > 20 ? "Sunny" : "Cloudy And Sunny" : "Cloudy" }</p>
+                        {temperature > 15 ? temperature > 20 ? <Sunny style="h-[60%] absolute top-1"/> : <CloudyAndSunny style="h-[60%] absolute top-1"/> : <Cloudy style="h-[55%] absolute left-[-2rem] top-3" /> }
+                        <p className="max-w-24 text-center break-words leading-none absolute bottom-3 left-[-1rem]">{temperature > 15 ? temperature > 20 ? "Sunny" : "Cloudy And Sunny" : "Cloudy" }</p>
                     </div>
                 </div>
                 <div className="mx-[5vw] flex justify-between items-end text-white">

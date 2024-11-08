@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       {windowWidth > 500
-      ?(<div className='h-full w-full px-10 flex flex-col justify-center items-center gap-5'>
+      ?(<div className='h-[100vh] w-[100vw] px-10 flex flex-col justify-center items-center gap-5'>
         <CloudyAndSunny style={'w-[200px]'}/>
         <p className='text-3xl text-center font-semibold'>This design is only available for mobile :(</p>
       </div>)
