@@ -3,17 +3,21 @@ import { IconCircle } from "./iconCircle"
 import RainyIcon from "../assets/rainy.svg"
 import { useEffect, useState } from "react"
 
-export function ChanceForRain ({hourlyData}) {
+export function ChanceForRain ({hourlyData, day}) {
     const [finalData, setFinalData] = useState([])
     
     const getCurrentHourlyData = (data) => {
-        let finalData = [];
-        for(let i = 0; i < data.length; i++){
-            if(new Date().getHours() <= new Date(data[i].time).getHours()){
-                finalData.push(data[i])
+        if(day == "Today"){
+            let finalData = [];
+            for(let i = 0; i < data.length; i++){
+                if(new Date().getHours() <= new Date(data[i].time).getHours()){
+                    finalData.push(data[i])
+                }
             }
+            return finalData
+        } else {
+            return data
         }
-        return finalData
     }
     
     useEffect(() => {
